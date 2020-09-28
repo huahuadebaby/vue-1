@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='ss'>
+        <h1>
+            {{age}}
+        </h1>
+        <p>
+            {{age>18 ?'成年了':'未成年'}}
+        </p>
+        <h2>
+            {{obj.age>20?"去打架吧":"好好学习"}}
+        </h2>
+
+        <h4>
+            {{li.toUpperCase()}}
+        </h4>
+        <h3>
+            {{
+                arr.join('-')
+            }}
+        </h3>
+        <!-- <h6>
+            {{
+                jk
+
+            }}
+        </h6> -->
+
+        <!-- <div data-id='{{gender}}'>
+
+        </div> -->
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#ss",
+            data: {
+                li: 'si',
+                mqs: '你是谁',
+                age: 18,
+                genter: '男',
+                obj: {
+                    age: 18,
+
+                },
+                arr: [1, 2, 3, 4, 5]
+
+            }
+        })
+        vm.obj.age = 30
+    </script>
+
+    <!-- 插值表达式：{{}} -->
+    <!-- 作用是使用data中的数据渲染视图  -->
+
+    <!-- 支持三元运算符但是不支持if,for等循环语句 -->
+
+    <!-- 支持一些原生方法的使用。如toUppercase(); -->
+
+    <!-- 插值表达式的注意点： -->
+    <!-- //1.没定义的变量的不能直接使用，否则会报错 -->
+    <!-- 2.插值表达式不支持for,if等js语句 -->
+    <!-- 3.插值表达式不能直接在标签属性中使用，如果使用会报错 -->
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id='show'>
+    <div v-if='jk'>你</div>
+    <div v-show='jk'>你</div>
+</div>
+
+
+<body>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vw = new Vue({
+            el: '#show',
+            data: {
+                jk: true
+            }
+
+        })
+        // 都是控制元素的隐藏和显示
+        //     区别
+        // v-if是动态添加和删减元素
+        //v - show是动态修改css样式(display： none)
+        // 使用场景:如果是频繁切换场景，建议使用v-show
+        // 如果某个元素，要么显示，要么隐藏，建议使用v-if;
+    </script>
+</body>
+
+</html>

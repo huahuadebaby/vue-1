@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3 v-red> {{msg}}</h3>
+        <h3 v-green> {{msg}}</h3>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.directive('red', {
+            inserted(el) {
+                el.style.color = 'red'
+            }
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello '
+            },
+            directives: {
+                green: {
+                    inserted(el) {
+                        el.style.color = 'green'
+                    }
+                }
+            }
+        })
+
+        // 全局自定义指令可以在全局的组件（vue实例）中使用，而局部指令只能在当前组件中使用
+    </script>
+
+</body>
+
+</html>

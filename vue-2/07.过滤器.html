@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>
+            {{msg|string}}
+        </h1>
+        <h1></h1>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        Vue.filter('string', value => value.toUpperCase()
+
+        )
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                msg: 'hello vue'
+                
+
+
+            }
+
+        })
+        // 过滤器应用场景，在工作中，我们必然会遇到需要对字符串格式的场景，vue专门提供了一个
+        //  工具：过滤器
+        //字符串(格式a)------>过滤器处理----->字符串(格式b)
+        // 过滤器的基本使用
+        // 1.定义过滤器
+
+        // Vue.filter(过滤器的名字，处理字符串的函数)
+        // (1)处理函数的返回值，都是处理完成的结果
+        // (2)处理函数的第一个参数，都是需要处理的字符串
+        // 2.使用过滤器
+        // {{data中需要处理的数据|过滤器的名字}}
+    </script>
+</body>
+
+</html>

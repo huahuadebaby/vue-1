@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{msgadd}}</h1>
+        <h1>{{msgkl}}</h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+    </div>
+
+
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                msg: '你是猪吗',
+                age: 18
+
+            },
+            computed: {
+                msgadd() {
+                    return this.msg.split('').reverse().join('')
+                },
+                msgkl() {
+                    return this.age > 18 ? '好好玩' : "好好学"
+
+                }
+            }
+
+        })
+
+        //计算属性的优点：
+        // 1. 便于维护， 将模板中的逻辑运算全部封装到计算属性中
+        // 2.计算属性有缓存，计算完成后，会将结果缓存出来，以便下次读取
+        // 3.如果计算属性被修改了，计算会重新计算并再次缓存
+    </script>
+</body>
+
+
+</html>

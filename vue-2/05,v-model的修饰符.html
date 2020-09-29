@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="app">
+    <input type="text" v-model.trim='un'>
+    <p>
+        {{un}}
+    </p>
+    <hr>
+    <input type="text" v-model.number='on'>
+    <p>
+        {{on}}
+    </p>
+</div>
+
+<body>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                un: 'hello Vue',
+                on: '123abc'
+            }
+        })
+        // v-model修饰符1.trim 去掉两边的空白
+        // 2.number 对输入的数字进行转数字
+    </script>
+</body>
+
+</html>

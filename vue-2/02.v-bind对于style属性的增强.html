@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div style="width: 200px; height: 100px; background-color: blue;" :style='obj'>
+        </div>
+
+        <div style="width: 200px; height: 100px; background-color: blue;"
+            :style="{width:'500px',height:'600px',backgroundColor:'red'}"></div>
+    </div>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                obj: {
+                    height: '200px',
+                    width: '300px',
+                    backgroundColor: 'skyblue'
+                }
+            }
+        })
+        // :style,v-bind对style的增强不常用，因为权限太高，只能在行内样式使用
+    </script>
+</body>
+
+</html>

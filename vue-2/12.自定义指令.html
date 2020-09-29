@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" v-red v-focus>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.directive('red', {
+            inserted(el) {
+                el.style.color = 'red'
+            }
+        })
+        Vue.directive('focus', {
+            inserted(el) {
+                el.focus()
+            }
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello world'
+            }
+
+        })
+        // 自定义指令
+        // 1.定义自定义指令
+        // Vue.directive('指令名', {
+        //     inserted(el) {
+        //         // el就是指令所在元素
+        //     }
+        // })
+        // 2.使用自定义指令
+        // 直接在标签属性上加 v-自定义指令名
+    </script>
+</body>
+
+</html>

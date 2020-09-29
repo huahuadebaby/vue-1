@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            {{msg|timer('YYYY年')}}
+
+        </p>
+        <p>
+            {{msg|timer('MM月')}}
+        </p>
+        <p>
+            {{msg|timer}}
+        </p>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/moment/moment.js"></script>
+
+    <script>
+        Vue.filter('timer', (value, str = 'YYYY年MM月DD日 HH:mm:ss') => {
+            return moment(value).format(str)
+
+        })
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                date1: 1601348075835,
+                date2: 1201348075835
+            }
+        })
+        // 过滤器的额外传参
+        // {{data中要处理的字符串|过滤器名(额外参数1，额外参数2)}}
+        
+        
+        
+        // 过滤器的注意点
+        // 过滤器的第一个参数永远是要处理的字符串，
+        // 如果过滤器没传参，但过滤器中有参数接着，这里应该设置默认参数
+    </script>
+</body>
+
+</html>

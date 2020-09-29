@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .base {
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+            margin: 20px;
+        }
+
+        .pink {
+            background-color: blue;
+        }
+
+        .big {
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="base" :class='obj'></div>
+        <div :class="obj"></div>
+        <div :class="arr"></div>
+        <div class="base" :class="{pink:ispink,big:isBig}"></div>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                obj: {
+                    pink: true,
+                    big: true
+                },
+                arr: ['pink', 'big'],
+                ispink: true,
+                isBig: false
+
+            }
+        })
+
+        // :class动态添加类名，不会影响原来的类名
+        // 1.data的数据可以是个对象， 值为一个布尔类型， true为添加类名，false为删除类名
+        // 2.data中数据也可以是个数组，数组里面的项就是需要添加得类名
+        // 3.:class='对象/数组'，写法是，直接内联在模板上的编写对象或数组
+    </script>
+</body>
+
+</html>

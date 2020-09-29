@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            {{msg|Cans}}
+        </p>
+        <p>
+            {{msg|sans}}
+        </p>
+
+    </div>
+    <div id="appp">
+        <p>
+            {{msg|Cans}}
+        </p>
+        <p>
+            {{msg|sans}}
+        </p>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.filter('Cans', (value) => {
+            return value + '_都是猪'
+
+        })
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "你是猪吧"
+            }
+
+        })
+        const vm1 = new Vue({
+            el: "#appp",
+            data: {
+                msg: "你是猪吧"
+            },
+            //局部过滤器
+            filters: {
+                sans(value) {
+                    return value + '_都是猪'
+                }
+
+
+            }
+
+        })
+        // 全局过滤器，在任何vue实例中，都可以使用
+        // 局部过滤器，只能在当前的vue实例使用
+    </script>
+</body>
+
+</html>

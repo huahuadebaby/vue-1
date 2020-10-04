@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .search {
+            width: 250px;
+            margin: 20px 0;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <!-- 搜索 -->
+            <input type="text" class="form-control search" placeholder="输入关键字进行搜索" v-focus v-model.trim='key'>
+            <!-- 表格 -->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>资产名称</th>
+                        <th>资产价格</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in showList" :key='item.id'>
+                        <td>
+                            {{index+1}}
+                        </td>
+                        <td>{{item.name}}</td>
+                        <td :class='{red:item.price>=99}'>{{item.price|times}}</td>
+                        <td><a href="javascript:;" @click='del(item.id)'>删除</a></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            {{inadd|times}}
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <!-- 添加资产 -->
+            <form class="form-inline">
+                <input type="text" class="form-control" v-model.trim='name' placeholder="资产名称">
+                &nbsp;&nbsp;
+                <input type="text" class="form-control" v-model.number='price' placeholder="资产价格">
+                &nbsp;&nbsp;
+                <button class="btn btn-primary" @click.prevent='add'>添加资产</button>
+            </form>
+        </div>
+    </div>
+    <!-- <script src="../node_modules/moment/moment.js"></script> -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script>
+        //过滤器, 重新设置日期格式
+        Vue.filter('times', (value) => {
+            return '￥' + value.toFixed(2)
+        });
+        // 自定义指令使价格变红
+        // Vue.directive('red', {
+        //     inserted(el) {
+        //         el.style.color = 'red'
+        //     }
+
+        // })
+        // 自定义指令使获取焦点
+        Vue.directive('focus', {
+            inserted(el) {
+                el.focus()
+            }
+
+        })
+
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                list: [],
+                name: '',
+                price: 0,
+                key: ''
+            },
+            created() {
+
+                // 一进来先获取数据渲染页面，created适合在这里发送初始化的ajax的请求
+                this.addlist()
+                // console.log(this.list);
+            },
+            methods: {
+                addlist() {
+                    // 进来就渲染页面
+                    axios.get('http://localhost:3000/list').then(res => {
+                        // console.log(res);
+                        this.list = res.data
+                    })
+
+                },
+                // 点击删除按钮，删除对应的
+                del(id) {
+                    axios.delete(`http://localhost:3000/list/${id}`).then((res) => {
+                        this.addlist()
+                    })
+
+                },
+                // 点击添加按钮，添加对应的数据
+                add() {
+                    if (this.name === '') return;
+                    if (this.price === '' || this.price <= 0) return
+                    axios.post('http://localhost:3000/list', {
+                        name: this.name,
+                        price: this.price
+                    }).then(res => {
+                        // this.list = res.data
+                        this.addlist()
+                        this.name = ''
+                        this.price = ''
+                    })
+
+                }
+            },
+            computed: {
+                // 总数相加,渲染到页面中
+                inadd() {
+                    let sum = 0;
+                    this.showList.forEach(item => sum += item.price)
+                    return sum
+                },
+
+                //查询对应的数据
+                showList: function () {
+
+                    return this.list.filter(item => item.name.includes(this.key))
+                }
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script>
+        // axios是一个封装原生ajax的插件工具
+        // 想要使用第一步下载包
+        // 第二步引入
+        //第三步发送请求
+        // axios写法
+        // axios({
+        // methods:请求方式
+        // url:请求地址
+        // data:参数的对象，在body请求题中传递，如post put patch
+        // parms:参数的对象，在url地址栏传递，如get,delete
+
+        // }).then(请求以后做的事).catch(失败以后做的事)
+
+
+        //get请求 获取
+        // axios({
+        //     method: 'get',
+        //     url: 'http://localhost:3000/list'
+        // }).then(res => {
+        //     console.log(res.data);
+        // })
+
+        // get请求的，完成搜索数据
+        // axios({
+        //     method: 'get',
+        //     url: 'http://localhost:3000/list?price_like=300'
+        // }).then(res => {
+        //     console.log(res.data);
+        // })
+        // put请求,添加
+        //     axios({
+        //         method: 'post',
+        //         url: 'http:localhost:3000/list',
+        //         data: {
+        //             name: "兰博基尼",
+        //             price: 300
+        //         }
+        //     }).then(res => {
+        //         console.log(res.data);
+        //     })
+        // 
+
+        // delete请求,删除数据
+        // axios({
+        //     method: 'delete',
+        //     url: 'http://localhost:3000/list/12'
+        // }).then(res => {
+        //     console.log(res);
+        //     console.log('删除成功');
+        // })
+    </script>
+</body>
+
+</html>

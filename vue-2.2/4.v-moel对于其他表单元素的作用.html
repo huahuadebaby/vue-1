@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <input type="text" v-model='msg' value='111'>
+        <hr>
+        <p>
+            {{desc}}
+        </p>
+        <textarea v-model='desc'></textarea>
+
+        <hr>
+
+        <p>
+            {{happy}}
+
+        </p>
+        <select name="" id="" v-model='happy'>
+            <option value="1">z</option>
+            <option value="2">k</option>
+            <option value="3">3</option>
+        </select>
+        <!-- select的value值，就是选中的option的value,j既可以用于获取，也可以修改
+         -->
+        <input type="checkbox" checked v-model='isll'> 是否单身
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '',
+                desc: '',
+                happy: '',
+                isll: false
+            }
+
+        })
+        // '对于表单的默认的checked,,当设置v-model后就会忽略原来的默认元素
+        // 还可以通过v-model实现vue双向数据绑定
+    </script>
+</body>
+
+</html>

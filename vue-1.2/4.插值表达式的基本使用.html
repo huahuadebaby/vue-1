@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ss">
+        {{li.toUpperCase()}}
+
+        <hr>
+        {{age>18?'滚去玩游戏吧':'好好学习'}}
+        <hr>
+        {{obj.age>18?'滚去玩游戏吧':'好好学习'}}
+        <hr>
+        {{arr.join('0')}}
+
+
+
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#ss',
+            data: {
+                li: 'qhy',
+                msq: '你是谁',
+                age: 20,
+                obj: {
+                    age: 18
+                },
+                arr: [1, 2, 3, 4, 5]
+
+            }
+
+        })
+        // 插值表达式的基本使用2
+        //作用是使用dataz中的数据渲染视图
+        // 注意点：可以使用三元表达式，但不支持if for语句
+        // 支持一些原生方法（如join spilt)的使用
+
+        // 插值表达式的注意点
+        // 1.没定义的变量的不能直接使用，否则会报错
+        //2.可以使用三元表达式，但不支持if for语句
+        // 3.插值表达式不能直接在标签属性中使用，如果使用会报错
+    </script>
+
+
+</body>
+
+</html>

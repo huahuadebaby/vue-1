@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click='isshow=!isshow'>
+            控制h1显示与隐藏
+        </button>
+        <hr>
+        <button v-on:click='fn'>
+            控制h1显示与隐藏
+        </button>
+        <hr>
+        <button v-on:click='fn2(2)'>
+            控制h1显示与隐藏
+        </button>
+        <hr>
+        <button @click='isshow=!isshow'>
+            控制h1显示与隐藏
+        </button>
+        <hr>
+        <button @click='fn'>
+            控制h1显示与隐藏
+        </button>
+        <hr>
+        <button @click='fn2(3)'>
+            控制h1显示与隐藏
+        </button>
+        <p v-show='isshow'> sss</p>
+
+
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isshow: true
+
+            },
+            methods: {
+                fn() {
+                    this.isshow = !this.isshow
+                },
+                fn2(num) {
+                    console.log(num);
+                }
+            }
+        })
+        // v-on注册事件的三种写法1.v-on事件名='要执行的代码'
+        // 2。v-on注册的 v-on:事件='要执行的代码'
+        //3. v-on事件名 = methods中的函数(参数1， 参数2)
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <img v-bind:src="imgsrc" alt="">
+        <img :src="imgsrc" alt="">
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                imgsrc: './00.gif'
+
+            }
+
+        })
+
+        // v-bind 动态设置标签属性，
+        // 语法v-bind:标签属性='值'
+        // 或者缩写:属性值='属性名'
+    </script>
+
+</body>
+
+</html>

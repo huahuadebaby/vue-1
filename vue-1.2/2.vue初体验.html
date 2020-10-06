@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{lk}}
+    </div>
+    <!-- 1.引入vue -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <!-- 2.创建一个vue实例 -->
+    <script>
+        const vm = new Vue({
+            // el后要加选择器，相当于视图层
+            el: "#app",
+            // data是一个对象，相当于一个数据层
+            data: {
+                lk: 'mmm'
+
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

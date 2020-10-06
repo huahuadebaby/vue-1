@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="aoo">
+        <a href="http://www.baidu.com"></a>
+        <div @click='fn'>
+            <a href="http://www.baidu.com" @click='fn2'>
+                我是一个a标签
+            </a>
+        </div>
+        <div @click='fn'>
+            <a href="http://www.baidu.com" @click.prevent.stop='fn3'>
+                我是一个a标签
+            </a>
+        </div>
+
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#aoo',
+            data: {
+
+            },
+            methods: {
+                fn() {
+                    alert('我是父盒子')
+
+                },
+                fn2(e) {
+                    e.stopPropagation()
+                    e.preventDefault()
+                    alert('我是子盒子')
+                },
+                fn3() {
+                    alert('我是子盒子')
+
+                }
+
+            }
+
+
+        })
+
+        // 为了书写简单， vue还专门提供了事件修饰符， 如stop prevent等
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='dt'>
+        <h1 v-text='msg'></h1>
+        <h1 v-html='msg'></h1>
+        <h2>{{msg}}</h2>s
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#dt',
+            data: {
+                msg: '<a href="#">我是一个a标签</a>'
+            }
+
+        })
+        // vue指令是标签属性，vue看到以v-开头的属性，都会当成指令解析，并且指定相应的指令
+        // v-text相当于innertext(),不经常用，常用插值表达式
+        // v - html相当与innerhtml();常用于识别标签
+    </script>
+
+</body>
+
+</html>

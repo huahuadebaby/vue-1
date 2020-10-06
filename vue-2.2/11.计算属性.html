@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="apo">
+        {{reverseMsg}}
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#apo',
+            data: {
+                msg: 'hello world'
+            },
+            computed: {
+                reverseMsg() {
+                    return this.msg.split('').reverse().join('')
+                }
+
+            }
+
+        })
+
+        // 计算属性
+        // 1.写在computed中，依托于当前的vue实例
+        // 2.写法虽然是一种方法，但应用是是一种属性，是需要通过计算得到的属性，
+        // 函数封装了计算的过程
+    </script>
+</body>
+
+</html>

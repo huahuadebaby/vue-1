@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-red>学生</p>
+        <input type="text" v-green>
+        <p v-green>去汉语</p>
+
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.directive('red', {
+            inserted(el) {
+                el.style.color = 'red'
+            }
+        })
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            directives: {
+                green: {
+                    inserted(el) {
+                        el.style.color = 'green'
+                    }
+                }
+
+            }
+        })
+        //自定义指令
+        // // 1. 定义自定义指令
+        // Vue.directive('自定义指令名', {
+        //     inserted(el) {
+        //         // el指的是指令当前的元素
+        //     }
+        // })
+        // 2.使用自定义指令
+        // 直接在标签属性上加v-自定义指令名、
+
+        //全局指令和局部指令的区别
+        //   全局自定义指令可以在全局组件都能用，而局部指令只能在当前实例中使用
+    </script>
+</body>
+
+</html>

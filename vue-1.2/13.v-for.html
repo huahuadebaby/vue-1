@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='item in list1'>{{item}}</li>
+        </ul>
+        <ul>
+            <li v-for='(item,index) in list1'>{{'我是'+item+   '我的排行'+index}}</li>
+        </ul>
+    </div>
+
+
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                list1: ['张磊1', '张磊2', '张磊3', '张磊4'],
+                list2: ['张磊1', '张磊2', '张磊3', '张磊4'],
+            }
+        })
+        // v-for用于遍历，有两种写法
+        //v -for = 'item in list'
+        //v -for = '(item,index) in list'   
+    </script>
+</body>
+
+</html>

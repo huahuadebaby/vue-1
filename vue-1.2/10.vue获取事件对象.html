@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <a href="http://www.baidu.com" v-on:click='fn'>点击百度一下</a>
+        <a href="http://www.baidu.com" v-on:click='fn2($event)'>点击百度一下</a>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                fn(e) {
+                    e.preventDefault()
+                },
+                fn2(e) {
+                    e.preventDefault()
+                }
+            }
+        })
+
+
+        //v - on注册的两种注册事件方式， 如果为不传参， methods参数中默认第一个参数
+        // 为事件对象，如果为传参，则可以通过$event进行传递传递事件对象
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="aoo">
+        <div v-if='age>=80'>80岁打太极</div>
+        <div v-else-if='age>=60'>60岁条广场舞</div>
+        <div v-else-if='age>=20'>20岁去上班</div>
+        <div v-else>`低于20去读书</div>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#aoo',
+            data: {
+                age: 40
+            }
+        })
+    </script>
+
+</body>
+
+</html>

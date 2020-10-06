@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{er|time}}</p>
+        <h1>{{er|sans}}</h1>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 全局过滤器
+        Vue.filter('time', value => value + '猪')
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                er: '你好'
+            },
+            //局部过滤器
+            filters: {
+                sans(value) {
+                    return value + '猪'
+                }
+            }
+        })
+
+        //全局过滤器在任何vue实例中，都可以使用
+        //局部过滤器，只能在当前的vue实例使用
+    </script>
+</body>
+
+</html>
